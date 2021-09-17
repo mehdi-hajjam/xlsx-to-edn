@@ -125,8 +125,8 @@
   (println "File data.edn successfully created."))
 
 (defn -main
-  [filename hosp-nb]
-  (->> (.getPath (io/resource filename))
+  [filepath hosp-nb]
+  (->> filepath
        (load-xlsx)
        (select (Integer. hosp-nb))
        (format-percentages)
