@@ -14,7 +14,7 @@ This should create a `target/` folder containing among other files the required 
 
 2. Check that the resources/ repository contains your latest data (those from the last reporting period) in a data.edn file. If this file doesn't exist but your data live in previous-data.edn, that is also fine.
 
-3. Execute in a terminal `./convert.sh "your-file.xlsx" number-of-hospitals` where your-file.xlsx is the complete path to your excel file (e.g. `/home/user/project/prais2/prais2020.xlsx`), and number-of-hospitals is the exact number of hospitals reporting data for the period.
+3. Execute in a terminal from the root directory `./convert.sh "your-file.xlsx" number-of-hospitals` where your-file.xlsx is the complete path to your excel file (e.g. `/home/user/project/prais2/prais2020.xlsx`), and number-of-hospitals is the exact number of hospitals reporting data for the period.
 > You may need to turn the script into an executable first by running `chmod +x convert.sh`
 
 ## Usage (developers)
