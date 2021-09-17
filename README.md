@@ -2,6 +2,12 @@
 
 A small Clojure application designed to transform Excel (.xlsx) hospital reports into .edn files in the context of the prais2cljs project.
 
+## Setting up the project
+
+Before a non-developer can use this program, one must build the uberjar of the application that is used in the `convert.sh` script.
+To do this, get `Leiningen` [installed](https://leiningen.org/#install), then run `lein uberjar` from the root directory of the project.
+This should create a `target/` folder containing among other files the required `xlsx-to-edn-0.1.0-SNAPSHOT-standalone.jar` file. If the name is different, please update `convert.sh` accordingly.
+
 ## Usage (general)
 
 1. Go to the root repository and check that both the resources/ and target/ folder exist.
