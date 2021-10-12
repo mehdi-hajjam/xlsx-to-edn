@@ -1,6 +1,7 @@
 (ns xlsx-to-edn.core
   (:require [dk.ative.docjure.spreadsheet :as dj]
             [clojure.java.io :as io])
+  (:import java.util.Locale)
   (:gen-class))
 
 (def hosp-data {"FRE" {:h-name "Newcastle, Freeman Hospital"  
@@ -75,12 +76,19 @@
   [map vals f]
   (reduce #(update-in % [%2] f) map vals))
 
+(defn my-format 
+  "Returns a format based on the chosen locale"
+  [fmt n & [locale]]
+  (let [locale (if locale (Locale. locale)
+                   (Locale/getDefault))]
+    (String/format locale fmt (into-array Object [n]))))
+
 (defn point-round
   "Returns a double between 0.0 and 100.0"
   [n]
   (cond
     (string? n) (point-round (Float/parseFloat n))
-    :else (Double/parseDouble (format "%.1f" (* 100 n)))))
+    :else (Double/parseDouble (my-format "%.1f" (* 100 n) "en-Gb"))))
 
 (defn format-percentages
   "Returns the percentages as numbers between 0 and 100, with 1 decimal points"

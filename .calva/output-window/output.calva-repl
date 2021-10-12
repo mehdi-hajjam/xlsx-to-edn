@@ -1,0 +1,257 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+c o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Jacking in...
+; Starting Jack-in Terminal: lein update-in :dependencies conj '[nrepl,"0.8.3"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.26.0"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- repl :headless
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS: 
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉xlsx-to-edn.core꞉>  ; Use `alt+enter` to evaluate
+; Jack-in done.
+clj꞉xlsx-to-edn.core꞉> hosp-data
+{"GUY" {:h-name "London, Evelina London Children's Hospital", :h-lat 51.498044, :h-lon -0.118835},
+ "SGH" {:h-name "Southampton, Wessex Cardiothoracic Centre", :h-lat 50.932846, :h-lon -1.432731},
+ "HSC" {:h-name "London, Harley Street Clinic", :h-lat 51.520348, :h-lon -0.147726},
+ "NHB" {:h-name "London, Royal Brompton Hospital", :h-lat 51.489012, :h-lon -0.170759},
+ "FRE" {:h-name "Newcastle, Freeman Hospital", :h-lat 55.002386, :h-lon -1.593643},
+ "GOS" {:h-name "London, Great Ormond Street Hospital for Children", :h-lat 51.522549, :h-lon -0.120923},
+ "BCH" {:h-name "Birmingham Children’s Hospital", :h-lat 52.484946, :h-lon -1.894566},
+ "LGI" {:h-name "Leeds General Infirmary", :h-lat 53.802109, :h-lon -1.55087},
+ "BRC" {:h-name "Bristol Royal Hospital for Children", :h-lat 51.457899, :h-lon -2.597014},
+ "ACH" {:h-name "Liverpool, Alder Hey Hospital", :h-lat 53.419566, :h-lon -2.90056},
+ "RHS" {:h-name "Glasgow, Royal Hospital for Children", :h-lat 55.862745, :h-lon -4.342357},
+ "OLS" {:h-name "Dublin, Our Lady's Children's Hospital", :h-lat 53.326005, :h-lon -6.317399},
+ "RVB" {:h-name "Belfast, Royal Victoria Hospital", :h-lat 54.594167, :h-lon -5.953666},
+ "GRL" {:h-name "Leicester, Glenfield Hospital", :h-lat 52.654229, :h-lon -1.179836}}
+clj꞉xlsx-to-edn.core꞉> (point-round "98,6")
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "98,6"
+clj꞉xlsx-to-edn.core꞉> 
+(point-round "98.6")
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "9860,0"
+clj꞉xlsx-to-edn.core꞉> 
+(point-round 98,6)
+; Execution error (ArityException) at xlsx-to-edn.core/eval7459 (form-init3877788522849593828.clj:43).
+; Wrong number of args (2) passed to: xlsx-to-edn.core/point-round
+clj꞉xlsx-to-edn.core꞉> 
+(point-round 98.6)
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "9860,0"
+clj꞉xlsx-to-edn.core꞉> (type 98,6)
+; Execution error (ArityException) at xlsx-to-edn.core/eval7463 (form-init3877788522849593828.clj:50).
+; Wrong number of args (2) passed to: clojure.core/type
+clj꞉xlsx-to-edn.core꞉> (type 98.00)
+java.lang.Double
+clj꞉xlsx-to-edn.core꞉> 
+(type 98.6)
+java.lang.Double
+clj꞉xlsx-to-edn.core꞉> (point-round 98.6)
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "9860,0"
+clj꞉xlsx-to-edn.core꞉> (format "%.1f" (* 100 0.986))
+"98,6"
+clj꞉xlsx-to-edn.core꞉> 
+(Double/parseDouble (format "%.1f" (* 100 0.986)))
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "98,6"
+clj꞉xlsx-to-edn.core꞉> 
+(Double/parseDouble (format "%.1f" (* 100 0.986)))
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "98,6"
+clj꞉xlsx-to-edn.core꞉> (Float/parseFloat "98.6")
+98.6
+clj꞉xlsx-to-edn.core꞉> 
+(Float/parseFloat "98,6")
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "98,6"
+clj꞉xlsx-to-edn.core꞉> (Double/parseDouble "98.6")
+98.6
+clj꞉xlsx-to-edn.core꞉> 
+(Double/parseDouble "98,6")
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "98,6"
+clj꞉xlsx-to-edn.core꞉> (Float/parseFloat "98.6")
+98.6
+clj꞉xlsx-to-edn.core꞉> 
+(Double/parseDouble "98,6")
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "98,6"
+clj꞉xlsx-to-edn.core꞉> 
+(Double/parseDouble "98.6")
+98.6
+clj꞉xlsx-to-edn.core꞉> (point-round "98.6")
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "9860,0"
+clj꞉xlsx-to-edn.core꞉> 
+#'xlsx-to-edn.core/point-round
+clj꞉xlsx-to-edn.core꞉> 
+(point-round "98.6")
+98.6
+98.6
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "9860,0"
+clj꞉xlsx-to-edn.core꞉> 
+(point-round "98,6")
+98,6
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "98,6"
+clj꞉xlsx-to-edn.core꞉> 
+(point-round 98.6)
+98.6
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "9860,0"
+clj꞉xlsx-to-edn.core꞉> 
+(point-round 98,6)
+; Execution error (ArityException) at xlsx-to-edn.core/eval7500 (form-init3877788522849593828.clj:114).
+; Wrong number of args (2) passed to: xlsx-to-edn.core/point-round
+clj꞉xlsx-to-edn.core꞉> 
+; Evaluating file: core_test.clj
+#'xlsx-to-edn.core-test/output-test
+; Running tests for xlsx-to-edn.core-test...
+0.121
+0.121
+0.98
+0.991
+; ERROR in xlsx-to-edn.core-test/basic-test (line 14):
+; point-round
+; error: java.lang.NumberFormatException: For input string: "12,1" (FloatingDecimal.java)
+; expected:
+(= 12.1 (point-round 0.121))
+; ERROR in xlsx-to-edn.core-test/basic-test (line 14):
+; point-round
+; error: java.lang.NumberFormatException: For input string: "98,0" (FloatingDecimal.java)
+; expected:
+(= 98.0 (point-round 0.98))
+; ERROR in xlsx-to-edn.core-test/basic-test (line 14):
+; point-round
+; error: java.lang.NumberFormatException: For input string: "99,1" (FloatingDecimal.java)
+; expected:
+(= 99.1 (point-round 0.991))
+; 10 tests finished, problems found. 😭 errors: 3, failures: 0, ns: 1, vars: 2
+clj꞉xlsx-to-edn.core-test꞉> 
+; Evaluating file: core_test.clj
+#'xlsx-to-edn.core-test/output-test
+; Running test: basic-test…
+0.121
+0.121
+0.98
+0.991
+; ERROR in xlsx-to-edn.core-test/basic-test (line 14):
+; point-round
+; error: java.lang.NumberFormatException: For input string: "12,1" (FloatingDecimal.java)
+; expected:
+(= 12.1 (point-round 0.121))
+; ERROR in xlsx-to-edn.core-test/basic-test (line 14):
+; point-round
+; error: java.lang.NumberFormatException: For input string: "98,0" (FloatingDecimal.java)
+; expected:
+(= 98.0 (point-round 0.98))
+; ERROR in xlsx-to-edn.core-test/basic-test (line 14):
+; point-round
+; error: java.lang.NumberFormatException: For input string: "99,1" (FloatingDecimal.java)
+; expected:
+(= 99.1 (point-round 0.991))
+; 9 tests finished, problems found. 😭 errors: 3, failures: 0, ns: 1, vars: 1
+clj꞉xlsx-to-edn.core-test꞉> (Double/parseDouble "12.7")
+12.7
+clj꞉xlsx-to-edn.core-test꞉> 
+#'xlsx-to-edn.core/point-round
+clj꞉xlsx-to-edn.core꞉> 
+(Double/parseDouble "12.7")
+12.7
+clj꞉xlsx-to-edn.core꞉> 
+(Double/parseDouble "98,6")
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "98,6"
+clj꞉xlsx-to-edn.core꞉> 
+(Float/parseFloat "98.6")
+98.6
+clj꞉xlsx-to-edn.core꞉> (format "%.1f" (* 100 98.6))
+"9860,0"
+clj꞉xlsx-to-edn.core꞉> 
+(format "%.1f" (* 100 0.986))
+"98,6"
+clj꞉xlsx-to-edn.core꞉> 
+(Double/parseDouble (format "%.1f" (* 100 0.986)))
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "98,6"
+clj꞉xlsx-to-edn.core꞉> 
+(format "%.1f" (* 100 0.9863432))
+"98,6"
+clj꞉xlsx-to-edn.core꞉> 
+(format "%.3f" (double (/ 5 2)))
+"2,500"
+clj꞉xlsx-to-edn.core꞉> (import java.util.Locale)
+java.util.Locale
+clj꞉xlsx-to-edn.core꞉> (defn my-format [fmt n & [locale]]
+                         (let [locale (if locale (Locale. locale)
+                                          (Locale/getDefault))]
+                           (String/format locale fmt (into-array Object [n]))))
+#'xlsx-to-edn.core/my-format
+clj꞉xlsx-to-edn.core꞉> 
+(my-format "%.1f" 98.6554 "en-Gb")
+"98.7"
+clj꞉xlsx-to-edn.core꞉> 
+(Float/parseFloat "98.6")
+98.6
+clj꞉xlsx-to-edn.core꞉> (my-format "%.1f" "98,7" "en-Gb")
+; Execution error (IllegalFormatConversionException) at java.util.Formatter$FormatSpecifier/failConversion (Formatter.java:4426).
+; f != java.lang.String
+clj꞉xlsx-to-edn.core꞉> 
+(my-format "%.1f" 98,7 "en-Gb")
+; Execution error (ClassCastException) at xlsx-to-edn.core/my-format (form-init3877788522849593828.clj:197).
+; class java.lang.Long cannot be cast to class java.lang.String (java.lang.Long and java.lang.String are in module java.base of loader 'bootstrap')
+clj꞉xlsx-to-edn.core꞉> 
+(Float/parseFloat "98.6")
+98.6
+clj꞉xlsx-to-edn.core꞉> 
+#'xlsx-to-edn.core/point-round
+clj꞉xlsx-to-edn.core꞉> (point-round " 0.121")
+ 0.121
+0.121
+12.1
+clj꞉xlsx-to-edn.core꞉> 
+(point-round " 0,121")
+ 0,121
+; Execution error (NumberFormatException) at jdk.internal.math.FloatingDecimal/readJavaFormatString (FloatingDecimal.java:2054).
+; For input string: "0,121"
+clj꞉xlsx-to-edn.core꞉> 
+(point-round 0.121)
+0.121
+12.1
+clj꞉xlsx-to-edn.core꞉> 
+; Evaluating file: core_test.clj
+#'xlsx-to-edn.core-test/output-test
+; Running test: basic-test…
+0.121
+0.121
+0.98
+0.991
+; 9 tests finished, all passing 👍, ns: 1, vars: 1
+clj꞉xlsx-to-edn.core-test꞉> 
+; Evaluating file: core_test.clj
+#'xlsx-to-edn.core-test/output-test
+; Running test: basic-test…
+0.121
+0.121
+0.98
+0.991
+; 9 tests finished, all passing 👍, ns: 1, vars: 1
+clj꞉xlsx-to-edn.core-test꞉> 
+#'xlsx-to-edn.core/point-round
+clj꞉xlsx-to-edn.core꞉> 
+; Evaluating file: core_test.clj
+#'xlsx-to-edn.core-test/output-test
+; Running test: basic-test…
+; 9 tests finished, all passing 👍, ns: 1, vars: 1
+clj꞉xlsx-to-edn.core-test꞉> 
