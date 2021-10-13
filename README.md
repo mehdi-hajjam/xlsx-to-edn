@@ -17,7 +17,7 @@ This should create a `target/` folder containing among other files the required 
 
 Make sure:
 - that the `.xlsx` file is in the same format as `resources/prais2020.xlsx`;
-- to update the hosp-data map in the code in case there are new hospitals in the project. You'll need to recreate your jar using `lein uberjar`should you change the code;
+- to update the `hospitals-location.edn`file in case there are new hospitals in the project. To do that, make sure its code (e.g. `"FRE"` for Newcastle, Freeman Hospital) is unique in the whole file, and matches the one used in the prais2 project. Add the name of the hospital, its latitude and longitude.
 - to enter the right number of hospitals that are reporting data in your file.
 
 Otherwise, there will be issues while loading the new data.
