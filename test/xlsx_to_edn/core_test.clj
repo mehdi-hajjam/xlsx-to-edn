@@ -15,7 +15,8 @@
     (are [x y] (= x y)
       12.1 (point-round "0.121")
       98.0 (point-round 0.98)
-      99.1 (point-round 0.991)))
+      99.1 (point-round 0.991)
+      95.4 (point-round "0.9543234")))
 
   (testing "find-max-year"
     (are [x y] (= x y)
